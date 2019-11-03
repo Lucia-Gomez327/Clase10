@@ -2,7 +2,7 @@ package com.ulp.clase10.model;
 
 import java.util.ArrayList;
 
-public class Lista_Programas {
+public class ListaProgramas {
 
     private int count;
 
@@ -12,8 +12,8 @@ public class Lista_Programas {
 
     private ArrayList<Programa> results;
 
-
-    public Lista_Programas(int count, String next, String previous, ArrayList<Programa> results) {
+    /*esto es un cambio*/
+    public ListaProgramas(int count, String next, String previous, ArrayList<Programa> results) {
         this.count = count;
         this.next = next;
         this.previous = previous;
@@ -21,7 +21,7 @@ public class Lista_Programas {
     }
 
 
-    public Lista_Programas() {
+    public ListaProgramas() {
     }
 
     public int getCount() {
