@@ -12,7 +12,8 @@ import android.widget.TextView;
 import com.ulp.clase10.R;
 
 public class MainActivity extends AppCompatActivity {
-private TextView salida;
+
+    private TextView salida;
 MainViewModel mainViewModel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +23,7 @@ MainViewModel mainViewModel;
     }
 
     private void configView(){
-        salida = findViewById(R.id.salida);
+       // salida = findViewById(R.id.salida);
 
         mainViewModel = ViewModelProviders.of(this).get(MainViewModel.class);
         mainViewModel.getLista().observe(this, new Observer<String>() {
