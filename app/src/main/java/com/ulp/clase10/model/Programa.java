@@ -1,6 +1,6 @@
 package com.ulp.clase10.model;
 
-public class Programas {
+public class Programa {
 
     private int idProgramas;
     private String url;
@@ -13,10 +13,10 @@ public class Programas {
     private  String depende_de;
     private  String autoridad;
 
-    public Programas() {
+    public Programa() {
     }
 
-    public Programas(int idProgramas, String url, String link, String direccion, String telefono, String descripcion, String email, String provincia, String depende_de, String autoridad) {
+    public Programa(int idProgramas, String url, String link, String direccion, String telefono, String descripcion, String email, String provincia, String depende_de, String autoridad) {
         this.idProgramas = idProgramas;
         this.url = url;
         this.link = link;
