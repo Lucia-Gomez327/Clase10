@@ -11,8 +11,7 @@ public class ListaProgramas {
     private String previous;
 
     private ArrayList<Programa> results;
-
-    /*esto es un cambio*/
+    
     public ListaProgramas(int count, String next, String previous, ArrayList<Programa> results) {
         this.count = count;
         this.next = next;
