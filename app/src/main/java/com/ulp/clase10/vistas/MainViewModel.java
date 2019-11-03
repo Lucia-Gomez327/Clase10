@@ -57,4 +57,30 @@ public class MainViewModel extends ViewModel {
         });
     }
 
+
+    public void descripcionViewModel(){
+        Call<Resultado> datos = ApiClient.getMyApiInterface().leer();
+        datos.enqueue(new Callback<Resultado>() {
+            @Override
+            public void onResponse(Call<Resultado> call, Response<Resultado> response) {
+                if(response.isSuccessful()){
+                    Resultado resultado = response.body();
+
+                    StringBuffer cadena = new StringBuffer();
+
+                    for (Municipio it:resultado.getMunicipios())
+                    {
+                        cadena.append(it.getNombre()+"\n");
+                    }
+                    lista.postValue(cadena.toString());
+                }
+            }
+            // se ejecuta si hay algun error
+            @Override
+            public void onFailure(Call<Resultado> call, Throwable t) {
+                lista.postValue(t.getMessage());
+            }
+        });
+    }
+
 }
