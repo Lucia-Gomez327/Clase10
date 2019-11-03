@@ -42,7 +42,7 @@ public class MainViewModel extends ViewModel {
 
                 StringBuffer cadena = new StringBuffer();
 
-                for (Municipio it:resultado.getMunicipios())
+                for (Municipio it :resultado.getMunicipios())
                 {
                     cadena.append(it.getNombre()+"\n");
                 }
