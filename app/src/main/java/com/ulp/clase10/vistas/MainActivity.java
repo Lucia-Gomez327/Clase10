@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModelProviders;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.ulp.clase10.R;
@@ -15,6 +16,8 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView salida;
 MainViewModel mainViewModel;
+
+private ListView lvNombrePrograma;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,8 +25,8 @@ MainViewModel mainViewModel;
         configView();
     }
 
-    private void configView(){
-       // salida = findViewById(R.id.salida);
+    /*private void configView(){
+       salida = findViewById(R.id.salida);
 
         mainViewModel = ViewModelProviders.of(this).get(MainViewModel.class);
         mainViewModel.getLista().observe(this, new Observer<String>() {
@@ -32,7 +35,26 @@ MainViewModel mainViewModel;
                 salida.setText(s);
             }
         });
+    }*/
+    private void configView(){
+
+        lvNombrePrograma = findViewById(R.id.ltNombrePrograma);
+
+        mainViewModel = ViewModelProviders.of(this).get(MainViewModel.class);
+        mainViewModel
+
+        mainViewModel.getLista().observe(this, new Observer<String>() {
+            @Override
+            public void onChanged(String s) {
+                salida.setText(s);
+            }
+
+
+        });
+
+        lvNombrePrograma
     }
+
 
     public void buscar(View view){
         mainViewModel.buscarViewModel();
