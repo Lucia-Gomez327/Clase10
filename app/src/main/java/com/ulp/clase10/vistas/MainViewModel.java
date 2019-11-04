@@ -37,7 +37,7 @@ public class MainViewModel extends ViewModel {
         }
         return listaProg;
     }
-    
+
 
     public void cargarProgramas (){
         //conectar con el objeto Retrofit
@@ -89,7 +89,7 @@ public class MainViewModel extends ViewModel {
         });
     }
 
-
+/*
 
     public void buscarViewModel (){
         //conectar con el objeto Retrofit
@@ -121,6 +121,6 @@ public class MainViewModel extends ViewModel {
         });
     }
 
-
+*/
 
 }
