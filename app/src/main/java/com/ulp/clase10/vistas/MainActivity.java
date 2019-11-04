@@ -1,12 +1,17 @@
 package com.ulp.clase10.vistas;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -19,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView salida;
 MainViewModel mainViewModel;
+
+private EditText etBuscar;
 
 private ListView lvNombrePrograma;
     @Override
@@ -42,19 +49,24 @@ private ListView lvNombrePrograma;
     private void configView(){
 
         lvNombrePrograma = findViewById(R.id.ltNombrePrograma);
+        etBuscar = findViewById(R.id.etBuscar);
+        ArrayAdapter<>
+
 
         mainViewModel = ViewModelProviders.of(this).get(MainViewModel.class);
+        final ArrayList<String> nombre;
 
-        ArrayList<Programa> pro = mainViewModel.getListaProg();
+        mainViewModel.getListaProg().observe(this, new Observer<ArrayList<Programa>>() {
+            @Override
+            public void onChanged(ArrayList<Programa> programas) {
+                
+                for(Programa it: programas )
+                {
+                    lvNombrePrograma.add()
 
-
-        for(Programa it: Programas )
-        {
-
-
-        }
-
-
+                }
+            }
+        });
 
 
 
@@ -70,8 +82,14 @@ private ListView lvNombrePrograma;
 
     }
 
+    public  void listarNombres(View view){
+        mainViewModel.cargarProgramas();
+    }
+
 
     public void buscar(View view){
         mainViewModel.buscarViewModel();
     }
+
+
 }

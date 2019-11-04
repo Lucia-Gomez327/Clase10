@@ -8,6 +8,14 @@
     android:orientation="vertical"
     >
 
+    <EditText
+        android:id="@+id/etBuscar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="listarNombres"></EditText>
+
+
+
     <ListView
         android:id="@+id/ltNombrePrograma"
         android:layout_width="wrap_content"
