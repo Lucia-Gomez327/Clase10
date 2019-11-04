@@ -11,6 +11,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.ulp.clase10.R;
+import com.ulp.clase10.model.Programa;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -41,7 +44,18 @@ private ListView lvNombrePrograma;
         lvNombrePrograma = findViewById(R.id.ltNombrePrograma);
 
         mainViewModel = ViewModelProviders.of(this).get(MainViewModel.class);
-       
+
+        ArrayList<Programa> Programas = mainViewModel.getListaProg();
+
+        for(Programa it: Programas )
+        {
+
+
+        }
+
+
+
+
 
         mainViewModel.getLista().observe(this, new Observer<String>() {
             @Override
@@ -52,7 +66,7 @@ private ListView lvNombrePrograma;
 
         });
 
-        lvNombrePrograma
+
     }
 
 
