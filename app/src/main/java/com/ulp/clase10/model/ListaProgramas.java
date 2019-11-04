@@ -10,13 +10,13 @@ public class ListaProgramas {
 
     private String previous;
 
-    private ArrayList<Programa> results;
-    
-    public ListaProgramas(int count, String next, String previous, ArrayList<Programa> results) {
+    private ArrayList<Programa> programas;
+
+    public ListaProgramas(int count, String next, String previous, ArrayList<Programa> programas) {
         this.count = count;
         this.next = next;
         this.previous = previous;
-        this.results = results;
+        this.programas = programas;
     }
 
 
@@ -47,12 +47,12 @@ public class ListaProgramas {
         this.previous = previous;
     }
 
-    public ArrayList<Programa> getResults() {
-        return results;
+    public ArrayList<Programa> getProgramas() {
+        return programas;
     }
 
-    public void setResults(ArrayList<Programa> results) {
-        this.results = results;
+    public void setProgramas(ArrayList<Programa> programas) {
+        this.programas = programas;
     }
 
 }
