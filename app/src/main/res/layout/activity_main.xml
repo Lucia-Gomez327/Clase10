@@ -8,15 +8,10 @@
     android:orientation="vertical"
     >
 
-    <TextView
-        android:id="@+id/salida"
+    <ListView
+        android:id="@+id/ltNombrePrograma"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="469dp" />
 
     <Button
         android:layout_width="wrap_content"
@@ -24,5 +19,15 @@
         android:id="@+id/Buscar"
         android:text="Buscar"
         android:onClick="buscar"/>
+
+    <!--<TextView
+        android:id="@+id/salida"
+    android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />  -->
 
 </LinearLayout>
