@@ -41,7 +41,7 @@ private ListView lvNombrePrograma;
         lvNombrePrograma = findViewById(R.id.ltNombrePrograma);
 
         mainViewModel = ViewModelProviders.of(this).get(MainViewModel.class);
-        mainViewModel
+       
 
         mainViewModel.getLista().observe(this, new Observer<String>() {
             @Override
