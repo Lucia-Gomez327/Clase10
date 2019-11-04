@@ -45,7 +45,8 @@ private ListView lvNombrePrograma;
 
         mainViewModel = ViewModelProviders.of(this).get(MainViewModel.class);
 
-        ArrayList<Programa> Programas = mainViewModel.getListaProg();
+        ArrayList<Programa> pro = mainViewModel.getListaProg();
+
 
         for(Programa it: Programas )
         {
