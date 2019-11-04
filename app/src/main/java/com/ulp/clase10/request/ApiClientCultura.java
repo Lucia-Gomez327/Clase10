@@ -3,6 +3,7 @@ package com.ulp.clase10.request;
 
 import android.util.Log;
 
+import com.ulp.clase10.model.ListaProgramas;
 import com.ulp.clase10.model.Resultado;
 
 import retrofit2.Call;
@@ -31,10 +32,11 @@ public class ApiClientCultura {
 
     public interface MyApiInterface {
 
-        String prov = "74";
+        //String prov = "74";
+        String prog = "120";
         //get dice a que servicio va a llamar
-         @GET("municipios?provincia="+prov)
-         Call<Resultado> leer();
+         @GET("v2.0/organismos/"+prog)
+         Call<ListaProgramas> leerProgramas();
 
     }
 }
