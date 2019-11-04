@@ -36,6 +36,5 @@ MainViewModel mainViewModel;
 
     public void buscar(View view){
         mainViewModel.buscarViewModel();
-
     }
 }

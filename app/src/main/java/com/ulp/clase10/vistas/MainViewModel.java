@@ -28,35 +28,13 @@ public class MainViewModel extends ViewModel {
         return lista;
     }
 
-    public void buscarViewModel (){
-        //conectar con el objeto Retrofit
-        //invicar el metodo leer
-        //leer devuelve un resultado
-        Call<Resultado> datos = ApiClient.getMyApiInterface().leer();
-        datos.enqueue(new Callback<Resultado>() {
-            //se ejecuta una vez que tuvo la respuesta
-            @Override
-            public void onResponse(Call<Resultado> call, Response<Resultado> response) {
-            //respons tiene mi resultado
-                if(response.isSuccessful()){
-                Resultado resultado = response.body();
-
-                StringBuffer cadena = new StringBuffer();
-
-                for (Municipio it :resultado.getMunicipios())
-                {
-                    cadena.append(it.getNombre()+"\n");
-                }
-                lista.postValue(cadena.toString());
-            }
-            }
-            // se ejecuta si hay algun error
-            @Override
-            public void onFailure(Call<Resultado> call, Throwable t) {
-                lista.postValue(t.getMessage());
-            }
-        });
+    public LiveData<ListaProgramas> getListaProg(){
+        if(listaProg == null){
+            listaProg = new MutableLiveData<>();
+        }
+        return listaProg;
     }
+
 
 
 
@@ -87,10 +65,6 @@ public class MainViewModel extends ViewModel {
 
 
 
-
-
-
-
     public void descripcionViewModel(){
         Call<Resultado> datos = ApiClient.getMyApiInterface().leer();
         datos.enqueue(new Callback<Resultado>() {
@@ -115,5 +89,39 @@ public class MainViewModel extends ViewModel {
             }
         });
     }
+
+
+
+    public void buscarViewModel (){
+        //conectar con el objeto Retrofit
+        //invicar el metodo leer
+        //leer devuelve un resultado
+        Call<Resultado> datos = ApiClient.getMyApiInterface().leer();
+        datos.enqueue(new Callback<Resultado>() {
+            //se ejecuta una vez que tuvo la respuesta
+            @Override
+            public void onResponse(Call<Resultado> call, Response<Resultado> response) {
+                //respons tiene mi resultado
+                if(response.isSuccessful()){
+                    Resultado resultado = response.body();
+
+                    StringBuffer cadena = new StringBuffer();
+
+                    for (Municipio it :resultado.getMunicipios())
+                    {
+                        cadena.append(it.getNombre()+"\n");
+                    }
+                    lista.postValue(cadena.toString());
+                }
+            }
+            // se ejecuta si hay algun error
+            @Override
+            public void onFailure(Call<Resultado> call, Throwable t) {
+                lista.postValue(t.getMessage());
+            }
+        });
+    }
+
+
 
 }
