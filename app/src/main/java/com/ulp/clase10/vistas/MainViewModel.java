@@ -64,7 +64,7 @@ public class MainViewModel extends ViewModel {
         //conectar con el objeto Retrofit
         //invicar el metodo leer
         //leer devuelve un resultado
-        Call<ListaProgramas> datos = ApiClient.getMyApiInterface().leerProgramas();
+        Call<ListaProgramas> datos = ApiClientCultura.getMyApiInterface().leerProgramas();
         datos.enqueue(new Callback<ListaProgramas>() {
             //se ejecuta una vez que tuvo la respuesta
             @Override
