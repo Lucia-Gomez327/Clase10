@@ -6,9 +6,12 @@ import androidx.lifecycle.ViewModel;
 
 import com.ulp.clase10.model.ListaProgramas;
 import com.ulp.clase10.model.Municipio;
+import com.ulp.clase10.model.Programa;
 import com.ulp.clase10.model.Resultado;
 import com.ulp.clase10.request.ApiClient;
 import com.ulp.clase10.request.ApiClientCultura;
+
+import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -18,7 +21,7 @@ import retrofit2.Response;
 public class MainViewModel extends ViewModel {
 
 //observando el estring del textView
-    private MutableLiveData<ListaProgramas> listaProg;
+    private MutableLiveData<ArrayList<Programa>> listaProg;
     private MutableLiveData<String> lista;
 
     public LiveData<String> getLista(){
@@ -28,16 +31,13 @@ public class MainViewModel extends ViewModel {
         return lista;
     }
 
-    public LiveData<ListaProgramas> getListaProg(){
+    public LiveData<ArrayList<Programa>> getListaProg(){
         if(listaProg == null){
             listaProg = new MutableLiveData<>();
         }
         return listaProg;
     }
-
-
-
-
+    
 
     public void cargarProgramas (){
         //conectar con el objeto Retrofit
@@ -50,8 +50,7 @@ public class MainViewModel extends ViewModel {
             public void onResponse(Call<ListaProgramas> call, Response<ListaProgramas> response) {
                 //respons tiene mi resultado
                 if(response.isSuccessful()){
-                    ListaProgramas listaProgramas = response.body();
-
+                    ArrayList<Programa> listaProgramas = response.body().getProgramas();
                     listaProg.postValue(listaProgramas);
                 }
             }
