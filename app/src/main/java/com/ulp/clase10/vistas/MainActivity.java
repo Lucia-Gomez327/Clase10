@@ -58,6 +58,5 @@ private ListView lvNombrePrograma;
 
     public void buscar(View view){
         mainViewModel.buscarViewModel();
-
     }
 }
