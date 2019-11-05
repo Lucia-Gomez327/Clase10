@@ -36,7 +36,7 @@ public class AdapterLista extends ArrayAdapter<ItemPrograma> {
         ItemPrograma itemActual = list.get(position);
 
 
-        TextView tv = (TextView) itemView.findViewById(R.id.nombreItem);
+        TextView tv = (TextView) itemView.findViewById(R.id.tvNombreItem);
         tv.setText(itemActual.getNombre());
 
         return itemView;

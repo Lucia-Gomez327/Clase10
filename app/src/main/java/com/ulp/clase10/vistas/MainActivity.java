@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import com.ulp.clase10.R;
 import com.ulp.clase10.model.Programa;
+import com.ulp.clase10.model.ProgramaAdapter;
 
 import java.util.ArrayList;
 
@@ -50,12 +51,14 @@ private ListView lvNombrePrograma;
 
         lvNombrePrograma = findViewById(R.id.ltNombrePrograma);
         etBuscar = findViewById(R.id.etBuscar);
-        ArrayAdapter<>
-
+        ArrayList<Programa> programaArrayList = new ArrayList<Programa>();
+        ProgramaAdapter adapter = new ProgramaAdapter(this, programaArrayList);
+        lvNombrePrograma.setAdapter(adapter);
 
         mainViewModel = ViewModelProviders.of(this).get(MainViewModel.class);
         final ArrayList<String> nombre;
 
+/*
         mainViewModel.getListaProg().observe(this, new Observer<ArrayList<Programa>>() {
             @Override
             public void onChanged(ArrayList<Programa> programas) {
@@ -66,9 +69,7 @@ private ListView lvNombrePrograma;
 
                 }
             }
-        });
-
-
+        }); */
 
         mainViewModel.getLista().observe(this, new Observer<String>() {
             @Override
@@ -87,9 +88,9 @@ private ListView lvNombrePrograma;
     }
 
 
-    public void buscar(View view){
-        mainViewModel.buscarViewModel();
-    }
+    //public void buscar(View view){
+        //mainViewModel.buscarViewModel();
+    //}
 
 
 }
