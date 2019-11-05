@@ -23,10 +23,9 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     private TextView salida;
-MainViewModel mainViewModel;
+    MainViewModel mainViewModel;
 
 private EditText etBuscar;
-
 private ListView lvNombrePrograma;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +58,7 @@ private ListView lvNombrePrograma;
         mainViewModel.getListaProg().observe(this, new Observer<ArrayList<Programa>>() {
             @Override
             public void onChanged(ArrayList<Programa> programas) {
-                
+
                 for(Programa it: programas )
                 {
                     lvNombrePrograma.add()
