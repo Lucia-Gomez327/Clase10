@@ -21,7 +21,7 @@ import com.ulp.clase10.model.ProgramaAdapter;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
 
     private TextView salida;
     MainViewModel mainViewModel;
@@ -32,6 +32,7 @@ private ListView lvNombrePrograma;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         configView();
     }
 
@@ -49,27 +50,26 @@ private ListView lvNombrePrograma;
 
     private void configView(){
 
+
         lvNombrePrograma = findViewById(R.id.ltNombrePrograma);
         etBuscar = findViewById(R.id.etBuscar);
         ArrayList<Programa> programaArrayList = new ArrayList<Programa>();
-        ProgramaAdapter adapter = new ProgramaAdapter(this, programaArrayList);
-        lvNombrePrograma.setAdapter(adapter);
 
         mainViewModel = ViewModelProviders.of(this).get(MainViewModel.class);
+        listarNombres();
         final ArrayList<String> nombre;
 
-/*
+
         mainViewModel.getListaProg().observe(this, new Observer<ArrayList<Programa>>() {
             @Override
             public void onChanged(ArrayList<Programa> programas) {
 
-                for(Programa it: programas )
-                {
-                    lvNombrePrograma.add()
+                ProgramaAdapter adapter = new ProgramaAdapter(getApplicationContext(), programas);
+                Log.d("mensaje",)
+                lvNombrePrograma.setAdapter(adapter);
 
-                }
             }
-        }); */
+        });
 
         mainViewModel.getLista().observe(this, new Observer<String>() {
             @Override
@@ -83,7 +83,7 @@ private ListView lvNombrePrograma;
 
     }
 
-    public  void listarNombres(View view){
+    public  void listarNombres(){
         mainViewModel.cargarProgramas();
     }
 
