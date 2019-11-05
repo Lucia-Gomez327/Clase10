@@ -17,21 +17,22 @@ import android.widget.TextView;
 
 import com.ulp.clase10.R;
 import com.ulp.clase10.model.Programa;
+import com.ulp.clase10.model.ProgramaAdapter;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
 
     private TextView salida;
-MainViewModel mainViewModel;
+    MainViewModel mainViewModel;
 
 private EditText etBuscar;
-
 private ListView lvNombrePrograma;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         configView();
     }
 
@@ -48,27 +49,26 @@ private ListView lvNombrePrograma;
     }*/
     private void configView(){
 
+
         lvNombrePrograma = findViewById(R.id.ltNombrePrograma);
         etBuscar = findViewById(R.id.etBuscar);
-        ArrayAdapter<>
-
+        ArrayList<Programa> programaArrayList = new ArrayList<Programa>();
 
         mainViewModel = ViewModelProviders.of(this).get(MainViewModel.class);
+        listarNombres();
         final ArrayList<String> nombre;
+
 
         mainViewModel.getListaProg().observe(this, new Observer<ArrayList<Programa>>() {
             @Override
             public void onChanged(ArrayList<Programa> programas) {
-                
-                for(Programa it: programas )
-                {
-                    lvNombrePrograma.add()
 
-                }
+                ProgramaAdapter adapter = new ProgramaAdapter(getApplicationContext(), programas);
+                Log.d("mensaje",)
+                lvNombrePrograma.setAdapter(adapter);
+
             }
         });
-
-
 
         mainViewModel.getLista().observe(this, new Observer<String>() {
             @Override
@@ -82,14 +82,14 @@ private ListView lvNombrePrograma;
 
     }
 
-    public  void listarNombres(View view){
+    public  void listarNombres(){
         mainViewModel.cargarProgramas();
     }
 
 
-    public void buscar(View view){
-        mainViewModel.buscarViewModel();
-    }
+    //public void buscar(View view){
+        //mainViewModel.buscarViewModel();
+    //}
 
 
 }

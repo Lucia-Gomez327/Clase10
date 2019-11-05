@@ -22,6 +22,8 @@ public class MainViewModel extends ViewModel {
 
 //observando el estring del textView
     private MutableLiveData<ArrayList<Programa>> listaProg;
+    private MutableLiveData<String> link;
+
     private MutableLiveData<String> lista;
 
     public LiveData<String> getLista(){
@@ -36,6 +38,25 @@ public class MainViewModel extends ViewModel {
             listaProg = new MutableLiveData<>();
         }
         return listaProg;
+    }
+
+    public void mdificaLink (int idPrograma) {
+
+
+        Call<Programa> programaCall = ApiClientCultura.getMyApiInterface().leerPrograma(idPrograma);
+        programaCall.enqueue(new Callback<Programa>() {
+            @Override
+            public void onResponse(Call<Programa> call, Response<Programa> response) {
+
+               Programa programa = response.body();
+               link.setValue(programa.getLink());
+            }
+
+            @Override
+            public void onFailure(Call<Programa> call, Throwable t) {
+                link.setValue("No hay link");
+            }
+        });
     }
 
 
