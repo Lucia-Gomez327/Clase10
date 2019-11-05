@@ -46,7 +46,6 @@ private ListView lvNombrePrograma;
             }
         });
     }*/
-
     private void configView(){
 
         lvNombrePrograma = findViewById(R.id.ltNombrePrograma);

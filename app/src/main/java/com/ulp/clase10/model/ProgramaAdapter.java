@@ -18,17 +18,12 @@ public class ProgramaAdapter extends ArrayAdapter<Programa> {
 
     @Override
     public View getView(int position, View view, ViewGroup parent) {
-        // Get the data item for this position
         Programa programa = getItem(position);
-        // Check if an existing view is being reused, otherwise inflate the view
         if (view == null) {
             view = LayoutInflater.from(getContext()).inflate(R.layout.activity_nombres_items, parent, false);
         }
-        // Lookup view for data population
         TextView tvNombreItem = (TextView) view.findViewById(R.id.tvNombreItem);
-        // Populate the data into the template view using the data object
         tvNombreItem.setText(programa.getNombre());
-        // Return the completed view to render on screen
         return view;
     }
 }
