@@ -12,11 +12,12 @@ public class Programa {
     private  String provincia;
     private  String depende_de;
     private  String autoridad;
+    private String nombre;
 
     public Programa() {
     }
 
-    public Programa(int idProgramas, String url, String link, String direccion, String telefono, String descripcion, String email, String provincia, String depende_de, String autoridad) {
+    public Programa(int idProgramas, String url, String link, String direccion, String telefono, String descripcion, String email, String provincia, String depende_de, String autoridad, String nombre) {
         this.idProgramas = idProgramas;
         this.url = url;
         this.link = link;
@@ -27,6 +28,7 @@ public class Programa {
         this.provincia = provincia;
         this.depende_de = depende_de;
         this.autoridad = autoridad;
+        this.nombre = nombre;
     }
 
     public int getIdProgramas() {
@@ -107,5 +109,13 @@ public class Programa {
 
     public void setAutoridad(String autoridad) {
         this.autoridad = autoridad;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 }
