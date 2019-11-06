@@ -12,8 +12,9 @@ import com.ulp.clase10.R;
 import java.util.ArrayList;
 
 public class ProgramaAdapter extends ArrayAdapter<Programa> {
-    public ProgramaAdapter(Context context, ArrayList<Programa> users) {
-        super(context, 0, users);
+
+    public ProgramaAdapter(Context context,ArrayList<Programa> programas) {
+        super(context, 0,R.id.tvNombreItem, programas);
     }
 
     @Override

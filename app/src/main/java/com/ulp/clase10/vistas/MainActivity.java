@@ -64,7 +64,6 @@ private ListView lvNombrePrograma;
             public void onChanged(ArrayList<Programa> programas) {
 
                 ProgramaAdapter adapter = new ProgramaAdapter(getApplicationContext(), programas);
-                Log.d("mensaje",)
                 lvNombrePrograma.setAdapter(adapter);
 
             }
