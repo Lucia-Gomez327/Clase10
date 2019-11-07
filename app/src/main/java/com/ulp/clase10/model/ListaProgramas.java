@@ -5,11 +5,8 @@ import java.util.ArrayList;
 public class ListaProgramas {
 
     private int count;
-
     private String next;
-
     private String previous;
-
     private ArrayList<Programa> programas;
 
     public ListaProgramas(int count, String next, String previous, ArrayList<Programa> programas) {
@@ -17,10 +14,6 @@ public class ListaProgramas {
         this.next = next;
         this.previous = previous;
         this.programas = programas;
-    }
-
-
-    public ListaProgramas() {
     }
 
     public int getCount() {

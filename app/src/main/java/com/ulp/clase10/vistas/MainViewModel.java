@@ -26,43 +26,22 @@ public class MainViewModel extends ViewModel {
 //observando el estring del textView
 
     private MutableLiveData<ArrayList<Programa>> listaProg;
-    private MutableLiveData<String> link;
+    //private MutableLiveData<String> link;
 
-    private MutableLiveData<String> lista;
+    //private MutableLiveData<String> lista;
 
-    public LiveData<String> getLista(){
+   /* public LiveData<String> getLista(){
         if(lista == null){
             lista = new MutableLiveData<>();
         }
         return lista;
-    }
+    } */
 
     public LiveData<ArrayList<Programa>> getListaProg(){
         if(listaProg == null){
             listaProg = new MutableLiveData<>();
         }
         return listaProg;
-    }
-
-    public void modificaLink (int idPrograma) {
-
-
-        Call<Programa> programaCall = ApiClientCultura.getMyApiInterface().leerPrograma(idPrograma);
-        programaCall.enqueue(new Callback<Programa>() {
-            @Override
-            public void onResponse(Call<Programa> call, Response<Programa> response) {
-
-                if(response.isSuccessful()){
-                    Programa programa = response.body();
-                    link.postValue(programa.getLink());
-                }
-            }
-
-            @Override
-            public void onFailure(Call<Programa> call, Throwable t) {
-                link.postValue("No hay link");
-            }
-        });
     }
 
 
@@ -77,22 +56,22 @@ public class MainViewModel extends ViewModel {
             public void onResponse(Call<ListaProgramas> call, Response<ListaProgramas> response) {
                 //respons tiene mi resultado
                 if(response.isSuccessful()){
-                    ArrayList<Programa> listaProgramas = response.body().getProgramas();
-                   
-                    listaProg.postValue(listaProgramas);
+                    ListaProgramas listaProgramas = response.body();
+
+                    listaProg.postValue(response.body().getProgramas());
                 }
             }
             // se ejecuta si hay algun error
             @Override
             public void onFailure(Call<ListaProgramas> call, Throwable t) {
                 Log.d("mensaaa","mensaje error en observer mainviewmodel");
-                listaProg.postValue(null);
+
             }
         });
     }
 
 
-
+/*
     public void descripcionViewModel(){
         Call<Resultado> datos = ApiClient.getMyApiInterface().leer();
         datos.enqueue(new Callback<Resultado>() {
@@ -117,7 +96,28 @@ public class MainViewModel extends ViewModel {
             }
         });
     }
+*//*
+    public void modificaLink (int idPrograma) {
 
+
+        Call<Programa> programaCall = ApiClientCultura.getMyApiInterface().leerPrograma(idPrograma);
+        programaCall.enqueue(new Callback<Programa>() {
+            @Override
+            public void onResponse(Call<Programa> call, Response<Programa> response) {
+
+                if(response.isSuccessful()){
+                    Programa programa = response.body();
+                    link.postValue(programa.getLink());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Programa> call, Throwable t) {
+                link.postValue("No hay link");
+            }
+        });
+    }
+*/
 /*
 
     public void buscarViewModel (){

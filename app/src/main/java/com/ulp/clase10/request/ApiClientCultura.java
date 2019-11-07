@@ -39,8 +39,9 @@ public class ApiClientCultura {
         //String prov = "74";
 
         //get dice a que servicio va a llamar
-         @GET("?format=json&limit=50")Call<ListaProgramas> leerProgramas();
-         @GET("{idPrograma}")Call<Programa> leerPrograma(@Path("idPrograma") int idP);
+         @GET("?format=json&limit=100")
+         Call<ListaProgramas> leerProgramas();
+         //@GET("{idPrograma}")Call<Programa> leerPrograma(@Path("idPrograma") int idP);
 
     }
 

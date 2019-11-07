@@ -20,12 +20,10 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity{
 
-    private TextView salida;
+    TextView etBuscar;
     MainViewModel mainViewModel;
-    private Button btnBuscar;
-
-    private EditText etBuscar;
-    private ListView lvNombrePrograma;
+    Button btnBuscar;
+    ListView lvNombrePrograma;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +35,7 @@ public class MainActivity extends AppCompatActivity{
 
 
         etBuscar = findViewById(R.id.etBuscar);
-        lvNombrePrograma = findViewById(R.id.ltNombrePrograma);
+        lvNombrePrograma = findViewById(R.id.lvNombrePrograma);
         btnBuscar = findViewById(R.id.btnBuscar);
 
         mainViewModel = ViewModelProviders.of(this).get(MainViewModel.class);
@@ -49,7 +47,8 @@ public class MainActivity extends AppCompatActivity{
                     ArrayList<String> lista_nombres = new ArrayList<>();
 
                     for (Programa p: programas){
-                        Log.d("NOmbre",p.getNombre());
+                        Log.d("Nombre",p.getNombre());
+                        //buscar por lo engresado al tv
                         if(p.getNombre().contains(etBuscar.getText().toString())){
                             lista_nombres.add(p.getNombre());
                         }
@@ -62,21 +61,28 @@ public class MainActivity extends AppCompatActivity{
             }
         });
 
-        mainViewModel.getLista().observe(this, new Observer<String>() {
+
+
+        btnBuscar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mainViewModel.cargarProgramas();
+            }
+        });
+
+       /*  mainViewModel.getLista().observe(this, new Observer<String>() {
             @Override
             public void onChanged(String s) {
                 salida.setText(s);
             }
 
 
-        });
-
-
+        }); */
     }
 
-    public  void listarNombres(View view){
-        mainViewModel.cargarProgramas();
-    }
+
+
+
 
     /*private void configView(){
        salida = findViewById(R.id.salida);
