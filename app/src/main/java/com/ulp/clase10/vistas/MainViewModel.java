@@ -21,6 +21,7 @@ import retrofit2.Response;
 public class MainViewModel extends ViewModel {
 
 //observando el estring del textView
+
     private MutableLiveData<ArrayList<Programa>> listaProg;
     private MutableLiveData<String> link;
 

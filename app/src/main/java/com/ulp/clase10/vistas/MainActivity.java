@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -56,7 +57,8 @@ private ListView lvNombrePrograma;
         ArrayList<Programa> programaArrayList = new ArrayList<Programa>();
 
         mainViewModel = ViewModelProviders.of(this).get(MainViewModel.class);
-        listarNombres();
+
+
         final ArrayList<String> nombre;
 
 
@@ -65,11 +67,13 @@ private ListView lvNombrePrograma;
             public void onChanged(ArrayList<Programa> programas) {
 
                 ProgramaAdapter adapter = new ProgramaAdapter(getApplicationContext(), programas);
-                Log.d("mensaje",)
+                Log.d("men","hola");
                 lvNombrePrograma.setAdapter(adapter);
 
             }
         });
+
+        listarNombres();
 
         mainViewModel.getLista().observe(this, new Observer<String>() {
             @Override
