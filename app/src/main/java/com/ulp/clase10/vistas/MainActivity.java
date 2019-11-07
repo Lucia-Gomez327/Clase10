@@ -1,14 +1,10 @@
 package com.ulp.clase10.vistas;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -19,9 +15,7 @@ import android.widget.TextView;
 
 import com.ulp.clase10.R;
 import com.ulp.clase10.model.Programa;
-import com.ulp.clase10.model.ProgramaAdapter;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity{
@@ -45,10 +39,9 @@ public class MainActivity extends AppCompatActivity{
         etBuscar = findViewById(R.id.etBuscar);
         lvNombrePrograma = findViewById(R.id.ltNombrePrograma);
         btnBuscar = findViewById(R.id.btnBuscar);
-        ArrayList<Programa> programaArrayList = new ArrayList<Programa>();
 
         mainViewModel = ViewModelProviders.of(this).get(MainViewModel.class);
- 
+
         mainViewModel.getListaProg().observe(this, new Observer<ArrayList<Programa>>() {
             @Override
             public void onChanged(ArrayList<Programa> programas) {
