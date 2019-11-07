@@ -78,7 +78,7 @@ public class MainViewModel extends ViewModel {
                 //respons tiene mi resultado
                 if(response.isSuccessful()){
                     ArrayList<Programa> listaProgramas = response.body().getProgramas();
-                    Log.d("mensaaa","jeee"+listaProgramas.size());
+                   
                     listaProg.postValue(listaProgramas);
                 }
             }

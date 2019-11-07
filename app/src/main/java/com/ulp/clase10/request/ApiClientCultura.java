@@ -17,7 +17,7 @@ import retrofit2.http.Path;
 
 public class ApiClientCultura {
 
-    private static final  String path =  "https://www.cultura.gob.ar/api/v2.0/organismos/";
+    private static final  String path =  "https://www.cultura.gob.ar/api/v2.0/programas/";
     private  static MyApiInterface myApiInterface;
 
 
