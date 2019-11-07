@@ -7,13 +7,13 @@ public class ListaProgramas {
     private int count;
     private String next;
     private String previous;
-    private ArrayList<Programa> programas;
+    private ArrayList<Programa> results;
 
-    public ListaProgramas(int count, String next, String previous, ArrayList<Programa> programas) {
+    public ListaProgramas(int count, String next, String previous, ArrayList<Programa> results) {
         this.count = count;
         this.next = next;
         this.previous = previous;
-        this.programas = programas;
+        this.results = results;
     }
 
     public int getCount() {
@@ -41,11 +41,11 @@ public class ListaProgramas {
     }
 
     public ArrayList<Programa> getProgramas() {
-        return programas;
+        return results;
     }
 
     public void setProgramas(ArrayList<Programa> programas) {
-        this.programas = programas;
+        this.results = programas;
     }
 
 }

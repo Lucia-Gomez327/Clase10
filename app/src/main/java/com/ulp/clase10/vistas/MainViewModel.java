@@ -1,17 +1,13 @@
 package com.ulp.clase10.vistas;
 
 import android.util.Log;
-import android.widget.Toast;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.ulp.clase10.model.ListaProgramas;
-import com.ulp.clase10.model.Municipio;
 import com.ulp.clase10.model.Programa;
-import com.ulp.clase10.model.Resultado;
-import com.ulp.clase10.request.ApiClient;
 import com.ulp.clase10.request.ApiClientCultura;
 
 import java.util.ArrayList;
@@ -30,12 +26,6 @@ public class MainViewModel extends ViewModel {
 
     //private MutableLiveData<String> lista;
 
-   /* public LiveData<String> getLista(){
-        if(lista == null){
-            lista = new MutableLiveData<>();
-        }
-        return lista;
-    } */
 
     public LiveData<ArrayList<Programa>> getListaProg(){
         if(listaProg == null){
@@ -56,15 +46,13 @@ public class MainViewModel extends ViewModel {
             public void onResponse(Call<ListaProgramas> call, Response<ListaProgramas> response) {
                 //respons tiene mi resultado
                 if(response.isSuccessful()){
-                    ListaProgramas listaProgramas = response.body();
-
                     listaProg.postValue(response.body().getProgramas());
                 }
             }
             // se ejecuta si hay algun error
             @Override
             public void onFailure(Call<ListaProgramas> call, Throwable t) {
-                Log.d("mensaaa","mensaje error en observer mainviewmodel");
+                Log.d("mensaje","mensaje error en observer mainviewmodel");
 
             }
         });

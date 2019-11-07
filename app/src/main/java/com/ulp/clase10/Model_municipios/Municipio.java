@@ -1,4 +1,7 @@
-package com.ulp.clase10.model;
+package com.ulp.clase10.Model_municipios;
+
+import com.ulp.clase10.Model_municipios.Centroide;
+import com.ulp.clase10.Model_municipios.Provincia;
 
 public class Municipio {
     private Centroide centroide;

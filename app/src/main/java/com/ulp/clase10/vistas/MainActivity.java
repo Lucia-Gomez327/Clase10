@@ -47,7 +47,6 @@ public class MainActivity extends AppCompatActivity{
                     ArrayList<String> lista_nombres = new ArrayList<>();
 
                     for (Programa p: programas){
-                        Log.d("Nombre",p.getNombre());
                         //buscar por lo engresado al tv
                         if(p.getNombre().contains(etBuscar.getText().toString())){
                             lista_nombres.add(p.getNombre());

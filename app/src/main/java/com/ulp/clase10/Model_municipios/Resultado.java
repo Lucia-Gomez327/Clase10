@@ -1,4 +1,4 @@
-package com.ulp.clase10.model;
+package com.ulp.clase10.Model_municipios;
 
 import java.util.ArrayList;
 

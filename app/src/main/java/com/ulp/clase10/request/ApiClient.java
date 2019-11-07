@@ -3,13 +3,12 @@ package com.ulp.clase10.request;
 
 import android.util.Log;
 
-import com.ulp.clase10.model.Resultado;
+import com.ulp.clase10.Model_municipios.Resultado;
 
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
-import retrofit2.http.PATCH;
 
 
 public class ApiClient {
