@@ -32,11 +32,10 @@ public class ApiClientCultura {
 
     public interface MyApiInterface {
 
-        //String prov = "74";
-
         //get dice a que servicio va a llamar
-         @GET("?format=json&limit=100")
+         @GET("?format=json&limit=15")
          Call<ListaProgramas> leerProgramas();
+         //Metodo para traer un solo programa
          //@GET("{idPrograma}")Call<Programa> leerPrograma(@Path("idPrograma") int idP);
 
     }
