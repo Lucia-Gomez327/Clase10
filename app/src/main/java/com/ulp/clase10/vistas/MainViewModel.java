@@ -84,6 +84,7 @@ public class MainViewModel extends ViewModel {
             // se ejecuta si hay algun error
             @Override
             public void onFailure(Call<ListaProgramas> call, Throwable t) {
+                Log.d("mensaaa","mensaje error en observer mainviewmodel");
                 listaProg.postValue(null);
             }
         });
