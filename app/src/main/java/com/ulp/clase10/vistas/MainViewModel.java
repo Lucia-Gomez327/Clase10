@@ -1,5 +1,8 @@
 package com.ulp.clase10.vistas;
 
+import android.util.Log;
+import android.widget.Toast;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -41,7 +44,7 @@ public class MainViewModel extends ViewModel {
         return listaProg;
     }
 
-    public void mdificaLink (int idPrograma) {
+    public void modificaLink (int idPrograma) {
 
 
         Call<Programa> programaCall = ApiClientCultura.getMyApiInterface().leerPrograma(idPrograma);
@@ -49,13 +52,15 @@ public class MainViewModel extends ViewModel {
             @Override
             public void onResponse(Call<Programa> call, Response<Programa> response) {
 
-               Programa programa = response.body();
-               link.setValue(programa.getLink());
+                if(response.isSuccessful()){
+                    Programa programa = response.body();
+                    link.postValue(programa.getLink());
+                }
             }
 
             @Override
             public void onFailure(Call<Programa> call, Throwable t) {
-                link.setValue("No hay link");
+                link.postValue("No hay link");
             }
         });
     }
@@ -73,12 +78,14 @@ public class MainViewModel extends ViewModel {
                 //respons tiene mi resultado
                 if(response.isSuccessful()){
                     ArrayList<Programa> listaProgramas = response.body().getProgramas();
+                    Log.d("mensaaa","jeee"+listaProgramas.size());
                     listaProg.postValue(listaProgramas);
                 }
             }
             // se ejecuta si hay algun error
             @Override
             public void onFailure(Call<ListaProgramas> call, Throwable t) {
+                Log.d("mensaaa","mensaje error en observer mainviewmodel");
                 listaProg.postValue(null);
             }
         });
