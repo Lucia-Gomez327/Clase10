@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity{
 
     }
 
-    public  void listarNombres(){
+    public  void listarNombres(View view){
         mainViewModel.cargarProgramas();
     }
 
