@@ -48,8 +48,7 @@ public class MainActivity extends AppCompatActivity{
         ArrayList<Programa> programaArrayList = new ArrayList<Programa>();
 
         mainViewModel = ViewModelProviders.of(this).get(MainViewModel.class);
-        listarNombres();
-
+ 
         mainViewModel.getListaProg().observe(this, new Observer<ArrayList<Programa>>() {
             @Override
             public void onChanged(ArrayList<Programa> programas) {
